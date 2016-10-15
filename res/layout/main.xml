@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright Statement:
+
+  This software/firmware and related documentation ("MediaTek Software") are
+  protected under relevant copyright laws. The information contained herein is
+  confidential and proprietary to MediaTek Inc. and/or its licensors. Without
+  the prior written permission of MediaTek inc. and/or its licensors, any
+  reproduction, modification, use or disclosure of MediaTek Software, and
+  information contained herein, in whole or in part, shall be strictly
+  prohibited.
+
+  MediaTek Inc. (C) 2011-2014. All rights reserved.
+
+  BY OPENING THIS FILE, RECEIVER HEREBY UNEQUIVOCALLY ACKNOWLEDGES AND AGREES
+  THAT THE SOFTWARE/FIRMWARE AND ITS DOCUMENTATIONS ("MEDIATEK SOFTWARE")
+  RECEIVED FROM MEDIATEK AND/OR ITS REPRESENTATIVES ARE PROVIDED TO RECEIVER
+  ON AN "AS-IS" BASIS ONLY. MEDIATEK EXPRESSLY DISCLAIMS ANY AND ALL
+  WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED
+  WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE OR
+  NONINFRINGEMENT. NEITHER DOES MEDIATEK PROVIDE ANY WARRANTY WHATSOEVER WITH
+  RESPECT TO THE SOFTWARE OF ANY THIRD PARTY WHICH MAY BE USED BY,
+  INCORPORATED IN, OR SUPPLIED WITH THE MEDIATEK SOFTWARE, AND RECEIVER AGREES
+  TO LOOK ONLY TO SUCH THIRD PARTY FOR ANY WARRANTY CLAIM RELATING THERETO.
+  RECEIVER EXPRESSLY ACKNOWLEDGES THAT IT IS RECEIVER'S SOLE RESPONSIBILITY TO
+  OBTAIN FROM ANY THIRD PARTY ALL PROPER LICENSES CONTAINED IN MEDIATEK
+  SOFTWARE. MEDIATEK SHALL ALSO NOT BE RESPONSIBLE FOR ANY MEDIATEK SOFTWARE
+  RELEASES MADE TO RECEIVER'S SPECIFICATION OR TO CONFORM TO A PARTICULAR
+  STANDARD OR OPEN FORUM. RECEIVER'S SOLE AND EXCLUSIVE REMEDY AND MEDIATEK'S
+  ENTIRE AND CUMULATIVE LIABILITY WITH RESPECT TO THE MEDIATEK SOFTWARE
+  RELEASED HEREUNDER WILL BE, AT MEDIATEK'S OPTION, TO REVISE OR REPLACE THE
+  MEDIATEK SOFTWARE AT ISSUE, OR REFUND ANY SOFTWARE LICENSE FEES OR SERVICE
+  CHARGE PAID BY RECEIVER TO MEDIATEK FOR SUCH MEDIATEK SOFTWARE AT ISSUE.
+
+  The following software/firmware and/or related documentation ("MediaTek
+  Software") have been modified by MediaTek Inc. All revisions are subject to
+  any receiver's applicable license agreements with MediaTek Inc.
+-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:id="@+id/main_view"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <!-- middle part starts -->
+
+    <ImageView
+        android:background="@drawable/bg_material"
+        android:layout_width="fill_parent"
+        android:layout_height="230.0dip"
+        android:layout_weight="1.0" />
+
+    <RelativeLayout
+        android:id="@+id/rl_middlepart"
+        android:layout_width="fill_parent"
+        android:layout_height="160.0dip">
+
+        <TextView
+            android:textSize="20.0dip"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:id="@+id/station_name"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:layout_above="@+id/station_value" />
+
+        <TextView
+            android:textSize="20.0dip"
+            android:textStyle="bold"
+            android:gravity="center_horizontal"
+            android:id="@+id/text_fm"
+            android:layout_width="80.0dip"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/station_value"
+            android:layout_below="@+id/station_name" />
+
+        <TextView
+            android:textSize="60.0dip"
+            android:textStyle="bold"
+            android:textColor="#ffffffff"
+            android:gravity="center_horizontal"
+            android:id="@+id/station_value"
+            android:layout_width="160.0dip"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true" />
+
+        <TextView
+            android:textSize="20.0dip"
+            android:textStyle="bold"
+            android:gravity="center_horizontal"
+            android:id="@+id/text_mhz"
+            android:layout_width="80.0dip"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/station_value"
+            android:layout_below="@+id/station_name"
+            android:layout_alignBaseline="@+id/station_value" />
+
+        <TextView
+            android:textSize="20.0dip"
+            android:textStyle="bold"
+            android:textColor="#ffbbbbbb"
+            android:ellipsize="marquee"
+            android:gravity="center_horizontal"
+            android:id="@+id/text_rds"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:layout_below="@+id/station_value"
+            android:marqueeRepeatLimit="marquee_forever" />
+    </RelativeLayout>
+
+    <!-- middle part ends -->
+
+    <LinearLayout
+        android:id="@+id/bottombar_parent"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:id="@+id/bottom_bar"
+            android:background="@drawable/bottom_bar"
+            android:layout_width="fill_parent"
+            android:layout_height="60.0dip"
+            android:weightSum="4.0"
+            android:layout_alignParentBottom="true"
+            android:splitMotionEvents="false">
+
+            <!-- Must set the background to "btn_pressed" which is the same with what is set in source code. -->
+            <!-- Because if not set it, the button size will change when clicked. -->
+
+            <ImageButton
+                android:enabled="false"
+                android:id="@+id/button_prevstation"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:src="@drawable/btn_fm_previous"
+                android:adjustViewBounds="true"
+                android:layout_weight="1.0"
+                style="?android:attr/buttonBarButtonStyle" />
+
+            <ImageButton
+                android:enabled="false"
+                android:id="@+id/button_decrease"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:src="@drawable/btn_fm_decrease_frequency"
+                android:adjustViewBounds="true"
+                android:layout_weight="1.0"
+                style="?android:attr/buttonBarButtonStyle" />
+
+            <ImageButton
+                android:enabled="false"
+                android:id="@+id/button_increase"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:src="@drawable/btn_fm_increase_frequency"
+                android:adjustViewBounds="true"
+                android:layout_weight="1.0"
+                style="?android:attr/buttonBarButtonStyle" />
+
+            <ImageButton
+                android:enabled="false"
+                android:id="@+id/button_nextstation"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:src="@drawable/btn_fm_next"
+                android:adjustViewBounds="true"
+                android:layout_weight="1.0"
+                style="?android:attr/buttonBarButtonStyle" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:id="@+id/bottom_bar_recorder"
+            android:background="@drawable/bottom_bar"
+            android:visibility="gone"
+            android:layout_width="fill_parent"
+            android:layout_height="60.0dip"
+            android:weightSum="3.0"
+            android:layout_alignParentBottom="true"
+            android:splitMotionEvents="false">
+
+            <ImageButton
+                android:enabled="false"
+                android:id="@+id/btn_record"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:src="@drawable/btn_fm_record"
+                android:layout_weight="1.0"
+                style="?android:attr/buttonBarButtonStyle" />
+
+            <ImageButton
+                android:enabled="false"
+                android:id="@+id/btn_stop"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:src="@drawable/btn_fm_rec_stop"
+                android:layout_weight="1.0"
+                style="?android:attr/buttonBarButtonStyle" />
+
+            <ImageButton
+                android:enabled="false"
+                android:id="@+id/btn_playback"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:src="@drawable/btn_fm_rec_play"
+                android:layout_weight="1.0"
+                style="?android:attr/buttonBarButtonStyle" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:paddingTop="25.0dip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_middlepart">
+
+        <ImageButton
+            android:id="@+id/button_add_to_favorite"
+            android:background="#00000000"
+            android:layout_width="64.0dip"
+            android:layout_height="64.0dip"
+            android:layout_marginRight="20.0dip"
+            android:src="@drawable/btn_fm_favorite_off"
+            android:layout_alignParentRight="true" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:gravity="center_vertical"
+        android:id="@+id/rl_recinfo"
+        android:background="@drawable/bg_rec_infobar"
+        android:paddingLeft="5.0dip"
+        android:paddingRight="5.0dip"
+        android:visibility="gone"
+        android:layout_width="fill_parent"
+        android:layout_height="48.0dip"
+        android:layout_above="@+id/bottombar_parent">
+
+        <TextView
+            android:textSize="20.0sp"
+            android:textStyle="normal"
+            android:textColor="#ffffffff"
+            android:ellipsize="marquee"
+            android:id="@+id/txtRecInfoLeft"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:layout_toLeftOf="@+id/txtRecInfoRight"
+            android:layout_alignParentLeft="true" />
+
+        <TextView
+            android:textSize="20.0sp"
+            android:textStyle="normal"
+            android:textColor="#ffffffff"
+            android:id="@+id/txtRecInfoRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20.0dip"
+            android:layout_alignParentRight="true" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/anim_background"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/rl_recinfo">
+
+        <ImageView
+            android:id="@+id/iv_anim"
+            android:visibility="invisible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/fm_anim" />
+    </LinearLayout>
+
+</RelativeLayout>
